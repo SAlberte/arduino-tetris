@@ -10,18 +10,18 @@
 
 class Display
 {
-	public:
+  public:
     uint8_t block_dim = 8;
-		Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
-    
+    Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
+
     Display();
     void draw_score(int score);
 
-		void draw_background();
+    void draw_background();
     void draw_blocks(uint8_t last_pos[],
-                    uint8_t new_pos[],
-                    uint8_t len, 
-                    int color);
+                     uint8_t new_pos[],
+                     uint8_t len,
+                     int color);
 
     void draw_block_lines(uint8_t line_pos,
                           bool gameBoard[11][24],

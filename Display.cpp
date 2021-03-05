@@ -20,18 +20,18 @@ void Display::draw_background()
 
 void Display::draw_score(int score)
 {
-      tft.fillRect(108, 0, 20, 60, Colors::YELLOW);
-      tft.setTextSize(1);
-      tft.setCursor(109, 5);
-      tft.setTextColor(Colors::BLUE);
-      tft.print(score);
+  tft.fillRect(108, 0, 20, 60, Colors::YELLOW);
+  tft.setTextSize(1);
+  tft.setCursor(109, 5);
+  tft.setTextColor(Colors::BLUE);
+  tft.print(score);
 }
 
 void Display::draw_blocks(uint8_t last_pos[],
                           uint8_t new_pos[],
-                          uint8_t len, 
+                          uint8_t len,
                           int color)
-{ 
+{
   uint8_t clear_same_inds[4] = {5, 5, 5, 5};
   uint8_t draw_same_inds[4] = {5, 5, 5, 5};
   for (int i = 0; i < len - 1; i += 2)
@@ -97,23 +97,23 @@ void Display::draw_block_lines(uint8_t line_pos,
                                bool gameBoard[11][24],
                                int gameBoard_colors[11][24])
 {
-      tft.fillRect(20, 0, 88, line_pos*block_dim-3*block_dim, Colors::LIME);
-      for(int y=0;y<=line_pos;y++)
-        for(int x=0;x<11;x++)
-        {
-          if(gameBoard[x][y])
-          {
-            tft.fillRect(x*block_dim+20,
-                   y* block_dim - 4 * block_dim,
-                   block_dim,
-                   block_dim,
-                   gameBoard_colors[x][y]);
+  tft.fillRect(20, 0, 88, line_pos * block_dim - 3 * block_dim, Colors::LIME);
+  for (int y = 0; y <= line_pos; y++)
+    for (int x = 0; x < 11; x++)
+    {
+      if (gameBoard[x][y])
+      {
+        tft.fillRect(x * block_dim + 20,
+                     y * block_dim - 4 * block_dim,
+                     block_dim,
+                     block_dim,
+                     gameBoard_colors[x][y]);
 
-            tft.drawRect(x*block_dim+20,
-                   y*block_dim - 4*block_dim,
-                   block_dim,
-                   block_dim,
-                   Colors::BLACK);
-          } 
-        }
+        tft.drawRect(x * block_dim + 20,
+                     y * block_dim - 4 * block_dim,
+                     block_dim,
+                     block_dim,
+                     Colors::BLACK);
+      }
+    }
 }
